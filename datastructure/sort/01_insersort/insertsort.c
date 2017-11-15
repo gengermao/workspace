@@ -3,6 +3,7 @@
 void insertsort1(int a[], int n);
 void insertsort2(int a[], int n);
 void insertsort(int a[], int n);
+void swap(int *p, *q);
 
 int main()
 {
@@ -16,7 +17,7 @@ void insertsort1(int a[], int n)
 	for(i = 1 ;i < n; ++i)
 	{
 		//find the location of the insert for int[i]
-		for(j = i - 1; j >=0; j--)
+		for(j = i - 1; j >= 0; j--)
 			if(a[j] < a[i])
 				break;
 
@@ -36,6 +37,7 @@ void insertsort2(int a[], int n)
 {
 	int i, j, k;
 
+	//将判断位置和后移放在了一起
 	for(i = 1; i < n; ++i)
 	{
 		if(a[i] < a[i-1]){
@@ -52,9 +54,10 @@ void insertsort2(int a[], int n)
 void insertsort(int a[], int n)
 {
 	int i, j, k;
-
+	
+	//将后移换成了交换位置
 	for(i = 1; i < n; ++i)
-		for(j = i - 1; j >=0 && (a[j] > a[j+1]))
+		for(j = i - 1; j >= 0 && (a[j] > a[j+1]); j--)
 			swap(&a[j],&a[j+1])
 }
 
