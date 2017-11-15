@@ -20,19 +20,13 @@ void shellsort(int v[], int n)
 	int gap, i, j, temp;
 
 	for(gap = n/2; gap > 0; gap /= 2){
-		printf("for(gpa=%d; %d > 0; %d/=2 ){\n",n/2,gap,gap);
 		for(i = gap; i < n; i++ ){
-			printf("\tfor(i = %d; %d < n; %d++){\n",gap,i,i);
-			for(j = i - gap; (v[j] > v[j+gap]) && j >= 0; j -= gap)
+			for(j = i - gap; j >= 0 && (v[j] > v[j+gap]) ; j -= gap)
 			{
-				printf("\t\tfor(j = %d; (%d > %d) && %d >= 0; %d -= gap)\n",j,v[j],v[j+gap],j,j);
 				temp = v[j];
 				v[j] = v[j+gap];
 				v[j+gap] = temp;
 			}
-			printf("\t\t}\n");
 		}
-		printf("\t}\n");
 	}
-	printf("}\n");
 }
