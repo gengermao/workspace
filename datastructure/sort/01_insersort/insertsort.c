@@ -37,7 +37,7 @@ void insertsort2(int a[], int n)
 {
 	int i, j, k;
 
-	//将判断位置和后移放在了一起
+	//将判断位置和后移的功能放在了一起
 	for(i = 1; i < n; ++i)
 	{
 		if(a[i] < a[i-1]){
