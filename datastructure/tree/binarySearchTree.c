@@ -39,3 +39,23 @@ Position FindMax(BinarySearchTree BST)
 			T = T->Right;
 	return T;
 }
+
+BinarySearchTree Insert(ElementType X, BinarySearchTree BST)
+{
+	if(NULL == BST)
+	{
+		T = malloc(sizeof(struct BinarySearchTreeNode));
+		if(T == NULL)
+			FatalError("Out of space !!!");
+		else
+		{
+			BST->Element = X;
+			BST->Left = BST->Right = NULL;
+		}
+	}else if(X < BST->Element)
+		BST->Left = Insert(X,T->Left);
+	else if(X > BST->Element)
+		BST->Right = Insert(X,T->Right);
+
+	return BST;
+}
