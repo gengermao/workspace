@@ -59,3 +59,29 @@ BinarySearchTree Insert(ElementType X, BinarySearchTree BST)
 
 	return BST;
 }
+BinarySearchTree Delete(ElementType X, BinarySearchTree BST)
+{
+	Position TmpCell;
+
+	if(NULL == BST)
+		Error("Element not found");
+	else if(X < BST->Element)
+		BST->Left = Delete(X, BST->Left);
+	else if(X > BST->Element)
+		BST->Right = Delete(x, BST->Right);
+	else if(BST->Left && BST->Right)
+	{
+		TmpCell = FindMain(BST->Right);
+		BST->Element = TmpCell->Element;
+		BST->Right = Delete(BST->Element, BST->Right);
+	}else
+	{
+		TmpCell = BST;
+		if(NULL == BST->Left)
+			BST = BST->Right;
+		else if(NULL == BST->Right)
+			BST = BST->Right;
+		free(TmpCell);
+	}
+	return T;
+}

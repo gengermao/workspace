@@ -2,7 +2,7 @@
 
 #define abs(x) ((x) < 0 ? -(x) : (x))
 
-void itoa(int n, char s[])
+void itoa(int n, char s[], int b)
 {
 	int i, sign;
 	
@@ -14,7 +14,8 @@ void itoa(int n, char s[])
 
 	//do-while可以避免如果n=0，没有数值的问题，采用while结构会发生n=0，字符串数组中没有数据的问题。	
 	do{
-		s[i++] = abs(n % 10) + '0';
+		j = abs(n % b);
+		s[i++] = (j <= 9) ? j + '0': j + 'a' - 10;
 	}while((n /= 10) != 0);
 
 	if(sign < 0)
